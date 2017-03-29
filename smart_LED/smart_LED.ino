@@ -35,7 +35,7 @@ void setup() {
 
   for (int x = 0; x < 5; x++) { // 狀態1：開機時閃爍 5次
     for (int i = 0; i < RCOUNTS; i++) {
-      cpixels.setPixelColor(i, cpixels.Color(0, 10, 0)); // setting ring Led color to green.
+      cpixels.setPixelColor(i, cpixels.Color(0,40,21,50)); // setting ring Led color to green.
       cpixels.show();
     }
     delay(500);
@@ -169,17 +169,17 @@ void CLEAR_RING_LED() { // clear ring LED
 void SMART_STRIP(uint8_t num) {
   if (num < BLUE && num > ORG ) {
     for (int i = BLUE; i >= num; i--) {
-      pixels.setPixelColor(i, pixels.Color(0, 25, 8)); // setting 21~15 Led color to blue
+      pixels.setPixelColor(i, pixels.Color(0,15,7)); // setting 21~15 Led color to blue
       pixels.show();
     }
   } else if (num == ORG) {
     for (int i = BLUE; i >= ORG; i--) {
-      pixels.setPixelColor(i, pixels.Color(15, 8, 0)); // setting 14 Led color to yellow.
+      pixels.setPixelColor(i, pixels.Color(20,4,0)); // setting 14 Led color to yellow.
       pixels.show();
     }
   } else if (num < ORG && num > RED) {
     for (int i = BLUE; i >= num; i--) {
-      pixels.setPixelColor(i, pixels.Color(15, 8, 0)); // setting 21~8 Led color to yellow.
+      pixels.setPixelColor(i, pixels.Color(20,4,0)); // setting 21~8 Led color to yellow.
       pixels.show();
     }
   } else if (num == RED) {
@@ -196,20 +196,20 @@ void SMART_STRIP(uint8_t num) {
 }
 
 void RING_COLORS(uint8_t state) {
-  // 0 是橘色，1是紅色，2是綠色
+  // 0 是橘色，1是紅色，2是藍綠色
   if (state == 0) {
     for (int i = 0; i < RCOUNTS; i++) {
-      cpixels.setPixelColor(i, cpixels.Color(45, 10, 0)); // setting ring Led color to green.
+      cpixels.setPixelColor(i, cpixels.Color(40,8,0,50)); // setting ring Led color to green.
       cpixels.show();
     }
   } else if (state == 1) {
     for (int i = 0; i < RCOUNTS; i++) {
-      cpixels.setPixelColor(i, cpixels.Color(8, 0, 0)); // setting ring Led color to green.
+      cpixels.setPixelColor(i, cpixels.Color(40,0,0)); // setting ring Led color to green.
       cpixels.show();
     }
   } else if (state == 2) {
     for (int i = 0; i < RCOUNTS; i++) {
-      cpixels.setPixelColor(i, cpixels.Color(0, 10, 0)); // setting ring Led color to green.
+      cpixels.setPixelColor(i, cpixels.Color(0,40,21,50)); // setting ring Led color to green.
       cpixels.show();
     }
   }
@@ -218,9 +218,9 @@ void RING_COLORS(uint8_t state) {
 void STRIP_FLASH() {  // 進入首頁 -- 第一次閃爍
   for(int x=0;x<1;x++){
     for (int i = BLUE; i >= 14; i--) {
-      pixels.setPixelColor(i, pixels.Color(0, 25, 8)); // setting strip Led color to blue.
+      pixels.setPixelColor(i, pixels.Color(0,40,21,50)); // setting strip Led color to blue.
       pixels.show();
-      delay(400);
+      delay(300);
     }
     CLEAR_LED();
   }  
@@ -229,7 +229,7 @@ void STRIP_FLASH() {  // 進入首頁 -- 第一次閃爍
 void RING_PAIR() {  // 持續亮綠色  -- 配對成功
   for(int x=0;x<3;x++){
     for (int i = 0; i < RCOUNTS; i++) {
-      cpixels.setPixelColor(i, cpixels.Color(0, 10, 0)); // setting ring Led color to green.
+      cpixels.setPixelColor(i, cpixels.Color(0,40,21,50)); // setting ring Led color to green.
       cpixels.show();
       delay(200);
     }
